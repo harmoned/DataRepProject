@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#londonbutton").click(function(){
+        $.get("/london", function(data, status){
+		$("#city").data(data);
+        });
+    });
+});
+
+$(document).ready(function(){
+    $("#parisbutton").click(function(){
+        $.get("/londonhtml", function(data, status){
+		$("#city").html(data);
+        });
+    });
+});
+
+
+$(document).ready(function(){
+    $("#dubbutton").click(function(){
+        $.get("/thrillhtml", function(data, status){
+		$("#city").html(data);
+        });
+    });
+});
+
+
+
+$(document).ready(function(){
+    $("#japanbutton").click(function(){
+    $.post("/londonfile",
+        function(data,status){
+            alert("Data: " + data + "\nStatus: " + status);
+        });
+  });
+});
+
+
+
+$(document).ready(function(){
+    $("#londonBUTTON").click(function(){
+        $.get("/londonfile", function(data, status){
+		$("#city").html(data);
+        });
+    });
+});
+
+
+
+</script>
+
+<style>
+div.container {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: blue;
+    clear: left;
+    text-align: center;
+}
+
+nav {
+    float: left;
+    max-width: 280px;
+    margin: 0;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+   
+nav ul a {
+    text-decoration: none;
+}
+
+article {
+    margin-left: 170px;
+    border-left: 1px solid gray;
+    padding: 1em;
+    overflow: hidden;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<header>
+   <h1>Action Films</h1>
+</header>
+  
+<nav>
+<img src="images/predator.jpg" height="242" width="242" >
+  <ul>
+    <li><a href="#">London</a></li>
+    <li><a href="#">Paris</a></li>
+    <li><a href="#">Tokyo</a></li>
+  </ul>
+</nav>
+
+<article>
+  <h1>Film Details</h1>
+  
+  
+  <div class="column">
+						<h2><span></span></h2>
+						 <input type="submit" name="London" id="london1223" value="Update Action Films">
+ <input type="submit" name="Paris" id="parisbutton" value="Update Comedy Films">
+    <input type="submit" name="Japan" id="japanbutton" value="Update .... Films">
+	 <input type="submit" name="Japan" id="dubbutton" value="Update Thriller Films">
+	 <input type="submit" name="Japan" id="londonBUTTON" value="Fight Club">
+ 
+   <div id = "city">
+	
+</div>
+<img src="images/chuck.png" height="342" width="342" align="right">
+<title>Fixed Width 1 Green</title>
+  
+  
+</article>
+
+<footer>Copyright &copy; W3Schools.com</footer>
+
+</div>
+
+</body>
+</html>
