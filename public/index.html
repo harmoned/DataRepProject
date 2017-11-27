@@ -115,12 +115,16 @@ $(document).ready(function(){
 
 
 
+
+
+
+
 $(document).ready(function(){
-    $("#hide").click(function(){
-        $("p").hide();
+    $("#yes").click(function(){
+        $("h1").hide();
     });
-    $("#show").click(function(){
-        $("p").show();
+    $("#no").click(function(){
+        $("h1").show();
     });
 });
 
@@ -136,12 +140,11 @@ $(document).ready(function(){
   <div class="row content">
     <div class="col-sm-3 sidenav">
 	
-      <h4>John's Blog</h4>
+      <h4>Data Rep Project</h4>
       <ul class="nav nav-pills nav-stacked">
-        <li class="active"><a href="#section1">Home</a></li>
-        <li><a href="#section2">Friends</a></li>
-        <li><a href="#section3">Family</a></li>
-        <li><a href="#section3">Photos</a></li>
+      <h1>By Edmund Harmon G00323862</h1>
+        <button id="yes">Deatils Hide</button>
+<button id="no">Details Show</button>
       </ul><br>
 	  
 	  
@@ -178,8 +181,7 @@ $(document).ready(function(){
 <br>
 </br>
 
-<button id="hide">Hide</button>
-<button id="show">Show</button>
+
 
 <img src="images/batman.png" height="342" width="442" align="right">
 <img src="images/robo.png" height="342" width="442" align="right">
