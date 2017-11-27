@@ -1,10 +1,40 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script>
+  <title>Data Rep Project</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: blue;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
+ 
+  <script>
 $(document).ready(function(){
     $("#londonbutton").click(function(){
         $.get("/london", function(data, status){
@@ -51,89 +81,122 @@ $(document).ready(function(){
     });
 });
 
+$(document).ready(function(){
+    $("#termbutton").click(function(){
+        $.get("/term2", function(data, status){
+		$("#city").html(data);
+        });
+    });
+});
+
+$(document).ready(function(){
+    $("#diebutton").click(function(){
+        $.get("/diehard", function(data, status){
+		$("#city").html(data);
+        });
+    });
+});
+
+$(document).ready(function(){
+    $("#predbutton").click(function(){
+        $.get("/predator", function(data, status){
+		$("#city").html(data);
+        });
+    });
+});
+
+$(document).ready(function(){
+    $("#darkbutton").click(function(){
+        $.get("/dark", function(data, status){
+		$("#city").html(data);
+        });
+    });
+});
+
+
+
+$(document).ready(function(){
+    $("#hide").click(function(){
+        $("p").hide();
+    });
+    $("#show").click(function(){
+        $("p").show();
+    });
+});
 
 
 </script>
-
-<style>
-div.container {
-    width: 100%;
-    border: 1px solid gray;
-}
-
-header, footer {
-    padding: 1em;
-    color: white;
-    background-color: blue;
-    clear: left;
-    text-align: center;
-}
-
-nav {
-    float: left;
-    max-width: 280px;
-    margin: 0;
-    padding: 1em;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-   
-nav ul a {
-    text-decoration: none;
-}
-
-article {
-    margin-left: 170px;
-    border-left: 1px solid gray;
-    padding: 1em;
-    overflow: hidden;
-}
-</style>
+  
 </head>
 <body>
+<footer class="container-fluid">
+  <h2><center>Action Movies</center></h2>
+</footer>
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+	
+      <h4>John's Blog</h4>
+      <ul class="nav nav-pills nav-stacked">
+        <li class="active"><a href="#section1">Home</a></li>
+        <li><a href="#section2">Friends</a></li>
+        <li><a href="#section3">Family</a></li>
+        <li><a href="#section3">Photos</a></li>
+      </ul><br>
+	  
+	  
+	  
+	<img src="images/predator.jpg" height="300" width="300" align="left">
+	  
+      <div class="input-group">
+        
+        <span class="input-group-btn">
+          
+            
+          </button>
+        </span>
+      </div>
+    </div>
 
-<div class="container">
-
-<header>
-   <h1>Action Films</h1>
-</header>
-  
-<nav>
-<img src="images/predator.jpg" height="242" width="242" >
-  <ul>
-    <li><a href="#">London</a></li>
-    <li><a href="#">Paris</a></li>
-    <li><a href="#">Tokyo</a></li>
-  </ul>
-</nav>
-
-<article>
-  <h1>Film Details</h1>
-  
-  
-  <div class="column">
+    <div class="col-sm-9">
+      <h4>Film Details</h4>
+	  
+	  
+	  <div class="column">
 						<h2><span></span></h2>
-						 <input type="submit" name="London" id="london1223" value="Update Action Films">
- <input type="submit" name="Paris" id="parisbutton" value="Update Comedy Films">
-    <input type="submit" name="Japan" id="japanbutton" value="Update .... Films">
-	 <input type="submit" name="Japan" id="dubbutton" value="Update Thriller Films">
+						 
 	 <input type="submit" name="Japan" id="londonBUTTON" value="Fight Club">
+	 <input type="submit" name="Japan" id="termbutton" value="Terminator 2">
+	 <input type="submit" name="Japan" id="diebutton" value="Die Hard">
+	 <input type="submit" name="Japan" id="predbutton" value="Predator">
+	 <input type="submit" name="Japan" id="darkbutton" value="Dark Knight">
  
    <div id = "city">
 	
 </div>
-<img src="images/chuck.png" height="342" width="342" align="right">
+<br>
+<br>
+</br>
+
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+
+<img src="images/batman.png" height="342" width="442" align="right">
+<img src="images/robo.png" height="342" width="442" align="right">
 <title>Fixed Width 1 Green</title>
-  
-  
-</article>
+	  
+	  
+     
 
-<footer>Copyright &copy; W3Schools.com</footer>
-
+      
+            
+    </div>
+  </div>
 </div>
+
+<footer class="container-fluid">
+  <p>Edmund Harmon G00323862</p>
+</footer>
 
 </body>
 </html>
