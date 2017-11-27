@@ -27,9 +27,30 @@ app.get('/london', function (req, res) {
  })
  
 
+ 
  app.get('/londonfile', function(req, res) {
 	console.log("london file");
     res.sendFile(path.join(__dirname + '/london.html'));
+});
+
+app.get('/term2', function(req, res) {
+	console.log("term2");
+    res.sendFile(path.join(__dirname + '/term2.html'));
+});
+
+app.get('/diehard', function(req, res) {
+	console.log("diehard");
+    res.sendFile(path.join(__dirname + '/diehard.html'));
+});
+
+app.get('/predator', function(req, res) {
+	console.log("predator");
+    res.sendFile(path.join(__dirname + '/predator.html'));
+});
+
+app.get('/dark', function(req, res) {
+	console.log("dark");
+    res.sendFile(path.join(__dirname + '/dark.html'));
 });
  
 //Here we are configuring express to use body-parser as middle-ware.
@@ -44,6 +65,14 @@ app.post('/londonfile', function (req, res) {
 app.delete('/londonfile', function (req, res) {
   res.redirect('/');
 })
+
+
+
+
+
+
+
+
 
 
 app.listen(8080);
