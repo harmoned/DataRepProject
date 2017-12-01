@@ -1,14 +1,103 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: blue;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+	
+	
+	
+	
+	.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script>
+
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    resize: none;
+}
+
+  </style>
+  
+  <script>
 $(document).ready(function(){
     $("#londonbutton").click(function(){
         $.get("/london", function(data, status){
-		$("#city").text(data);
+		$("#city").data(data);
         });
     });
 });
@@ -35,6 +124,57 @@ $(document).ready(function(){
 $(document).ready(function(){
     $("#japanbutton").click(function(){
     $.post("/londonfile",
+        function(data,status){
+            alert("Data: " + data + "\nStatus: " + status);
+        });
+  });
+});
+
+
+
+$(document).ready(function(){
+    $("#londonBUTTON").click(function(){
+        $.get("/londonfile", function(data, status){
+		$("#city").html(data);
+        });
+    });
+});
+
+$(document).ready(function(){
+    $("#termbutton").click(function(){
+        $.get("/term2", function(data, status){
+		$("#city").html(data);
+        });
+    });
+});
+
+$(document).ready(function(){
+    $("#diebutton").click(function(){
+        $.get("/diehard", function(data, status){
+		$("#city").html(data);
+        });
+    });
+});
+
+$(document).ready(function(){
+    $("#predbutton").click(function(){
+        $.get("/predator", function(data, status){
+		$("#city").html(data);
+        });
+    });
+});
+
+$(document).ready(function(){
+    $("#darkbutton").click(function(){
+        $.get("/dark", function(data, status){
+		$("#city").html(data);
+        });
+    });
+});
+
+$(document).ready(function(){
+    $("#japanbutton").click(function(){
+    $.post("/londonfile",
         {
           firstname: "Donald",
           lastname: "Duck"
@@ -46,89 +186,116 @@ $(document).ready(function(){
 });
 
 
+
+
+
+$(document).ready(function(){
+    $("#hide").click(function(){
+        $("h1").hide();
+    });
+    $("#show").click(function(){
+        $("h1").show();
+    });
+});
+
+
+
+
+
 </script>
-
-
-<style>
-div.container {
-    width: 100%;
-    border: 1px solid gray;
-}
-
-header, footer {
-    padding: 1em;
-    color: white;
-    background-color: blue;
-    clear: left;
-    text-align: center;
-}
-
-nav {
-    float: left;
-    max-width: 280px;
-    margin: 0;
-    padding: 1em;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-   
-nav ul a {
-    text-decoration: none;
-}
-
-article {
-    margin-left: 170px;
-    border-left: 1px solid gray;
-    padding: 1em;
-    overflow: hidden;
-}
-</style>
+  
 </head>
 <body>
-
-<div class="container">
-
-<header>
-   <h1>Action Movies</h1>
-</header>
+<footer class="container-fluid">
+  <h2><center>Action Movies</center></h2>
+</footer>
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
+	
+      <div class="dropdown">
+  <button class="dropbtn">Film Details</button>
+  <div class="dropdown-content">
+    <input type="submit" name="Japan" id="londonBUTTON" value="Fight Club">
+    <input type="submit" name="Japan" id="termbutton" value="Terminator 2">
+    <input type="submit" name="Japan" id="diebutton" value="Die Hard">
+	 <input type="submit" name="Japan" id="predbutton" value="Predator">
+	 <input type="submit" name="Japan" id="darkbutton" value="Dark Knight">
+	 <input type="submit" name="Japan" id="japanbutton" value="Update .... Films"></li>
+  </div>
   
-<nav>
-  <ul>
-  <img src="images/predator.jpg" alt="Smiley face" height="430" width="275">
+  
+  
+</div>
+<br></br>
+	  
+	  
+	  
+	<img src="images/predator.jpg" height="300" width="300" align="left">
+	
+	
+	<h4>My Details</h4>
+	  
+	  <button id="hide">Hide</button>
+<button id="show">Show</button>
+	  
+      <div class="input-group">
+        
+        <span class="input-group-btn">
+          
+            
+          </button>
+		  
+		  
+		  
+        </span>
+      </div>
+    </div>
 
-
-   
-  </ul>
-</nav>
-
-<article>
-  <h1>Movie Titles</h1>
-  <ul>
-  <div class="list-style-position">
-						 <li><input type="submit" name="London" id="londonbutton" value="Update Action Films"></li>
- <li><input type="submit" name="Paris" id="parisbutton" value="Update Comedy Films"></li>
-   <li><input type="submit" name="Japan" id="japanbutton" value="Update .... Films"></li>
-	 <li><input type="submit" name="Japan" id="dubbutton" value="Update Thriller Films"></li>
+    <div class="col-sm-9">
+      
+	  
+	  <h1>Edmund Harmon G00323862</h1>
+	  
+	  <br></br>
+	  
+	  
+	  
+	  <div class="column">
+						<h2><span></span></h2>
+						 
+	 
+	 
+	 
  
    <div id = "city">
-
+	
 </div>
-</ul>
+<br>
+
+<form>
+  <textarea>Action films are a film genre where action sequences, such as fighting, stunts, car chases or explosions, take precedence over elements like characterization or complex plotting. The action typically involves individual efforts on the part of the hero, in contrast with most war films.</textarea>
+</form>
+
+</br>
+
+<img src="images/batman.png" height="342" width="442" align="right">
+<img src="images/robo.png" height="342" width="442" align="right">
 <title>Fixed Width 1 Green</title>
-  
-  <p></p>
-  <p></p>
-  <img src="images/chuck.png" alt="Smiley face" height="290" width="200" align="right">
-</article>
+	  
+	  
+     
 
-
-
-<footer>Edmund Harmon@g00323862</footer>
-
+      
+            
+    </div>
+  </div>
 </div>
+
+<footer class="container-fluid">
+  <p>Edmund Harmon G00323862</p>
+</footer>
 
 </body>
 </html>
+
