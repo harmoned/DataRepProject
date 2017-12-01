@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Data Rep Project</title>
+  <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -32,8 +32,16 @@
       }
       .row.content {height: auto;} 
     }
+	
+	.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
   </style>
- 
+  
   <script>
 $(document).ready(function(){
     $("#londonbutton").click(function(){
@@ -114,21 +122,6 @@ $(document).ready(function(){
 });
 
 
-
-
-
-
-
-$(document).ready(function(){
-    $("#yes").click(function(){
-        $("h1").hide();
-    });
-    $("#no").click(function(){
-        $("h1").show();
-    });
-});
-
-
 </script>
   
 </head>
@@ -140,13 +133,15 @@ $(document).ready(function(){
   <div class="row content">
     <div class="col-sm-3 sidenav">
 	
-      <h4>Data Rep Project</h4>
+      <h4>John's Blog</h4>
+	  <div class="dropdown-content">
       <ul class="nav nav-pills nav-stacked">
-      <h1>By Edmund Harmon G00323862</h1>
-        <button id="yes">Deatils Hide</button>
-<button id="no">Details Show</button>
+        <li class="active"><a href="#section1">Home</a></li>
+        <li><a href="#section2">Friends</a></li>
+        <li><a href="#section3">Family</a></li>
+        <li><a href="#section3">Photos</a></li>
       </ul><br>
-	  
+	  </div>
 	  
 	  
 	<img src="images/predator.jpg" height="300" width="300" align="left">
@@ -180,9 +175,6 @@ $(document).ready(function(){
 <br>
 <br>
 </br>
-
-
-
 <img src="images/batman.png" height="342" width="442" align="right">
 <img src="images/robo.png" height="342" width="442" align="right">
 <title>Fixed Width 1 Green</title>
