@@ -60,19 +60,11 @@ app.use(bodyParser.json());
 app.post('/londonfile', function (req, res) {
 	console.log("post method");
 	console.log(req.body.firstname);
-   res.send('Hello ' + req.body.firstname + " " + req.body.lastname);
+   res.send('Welcome to my Data Rep Project Work');
 })
 app.delete('/londonfile', function (req, res) {
   res.redirect('/');
 })
-
-
-
-
-
-
-
-
 
 
 app.listen(8080);
