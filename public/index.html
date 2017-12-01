@@ -176,8 +176,8 @@ $(document).ready(function(){
     $("#japanbutton").click(function(){
     $.post("/londonfile",
         {
-          firstname: "Donald",
-          lastname: "Duck"
+          firstname: "Edmund",
+          lastname: "Harmon"
         },
         function(data,status){
             alert("Data: " + data + "\nStatus: " + status);
@@ -216,12 +216,13 @@ $(document).ready(function(){
       <div class="dropdown">
   <button class="dropbtn">Film Details</button>
   <div class="dropdown-content">
+  <input type="submit" name="Japan" id="japanbutton" value="Welcome"></li>
     <input type="submit" name="Japan" id="londonBUTTON" value="Fight Club">
     <input type="submit" name="Japan" id="termbutton" value="Terminator 2">
     <input type="submit" name="Japan" id="diebutton" value="Die Hard">
 	 <input type="submit" name="Japan" id="predbutton" value="Predator">
 	 <input type="submit" name="Japan" id="darkbutton" value="Dark Knight">
-	 <input type="submit" name="Japan" id="japanbutton" value="Update .... Films"></li>
+	 
   </div>
   
   
